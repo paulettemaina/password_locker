@@ -50,7 +50,7 @@ class TestUser(unittest.TestCase):
 
     def test_find_user_by_login_name(self):
         '''
-        test to check if we can find a contact by phone number and display information
+        test to check if we can find a credentials by phone number and display information
         '''
 
         self.new_user.save_user()
@@ -62,11 +62,11 @@ class TestUser(unittest.TestCase):
 
     def test_user_exists(self):
         '''
-        test to check if we can return a Boolean  if we cannot find the contact.
+        test to check if we can return a Boolean  if we cannot find the credentials.
         '''
 
         self.new_user.save_user()
-        test_user = User("Ace","1234") # new contact
+        test_user = User("Ace","1234") # new credentials
         test_user.save_user()
 
         user_exists = User.user_exist("Ace")
@@ -100,6 +100,14 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(self.new_credentials.site,"fb")
         self.assertEqual(self.new_credentials.user_id,"Ventura")
         self.assertEqual(self.new_credentials.pass_key,"0000")
+
+    def test_save_credentials(self):
+        '''
+        test_save_credentials test case to test if the credentials 
+        object is saved into the credentials list
+        '''
+        self.new_credentials.save_credentials() # saving the new credentials
+        self.assertEqual(len(Credentials.credentials_list),1)
         
 
 
