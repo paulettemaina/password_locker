@@ -108,6 +108,21 @@ class TestCredentials(unittest.TestCase):
         '''
         self.new_credentials.save_credentials() # saving the new credentials
         self.assertEqual(len(Credentials.credentials_list),1)
+
+    def test_save_multiple_credentials(self):
+        '''
+        test-save_multiple_user to check if we can save multiple 
+        user objects to our user_list
+        '''
+        self.new_credentials.save_credentials()
+        test_credentials = Credentials("fb","Ventura","0000") #new User
+        test_credentials.save_credentials()
+        self.assertEqual(len(Credentials.credentials_list),2)
+
+
+    
+
+    
         
 
 
@@ -119,26 +134,6 @@ class TestCredentials(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
-    
-
-    
-
-
-
-class TestCredentials(unittest.TestCase):
-    '''
-    Test class that defines test cases for the credentials class.
-    Args:
-        unittest.TestCase: TestCase class that helps in creating test cases
-    '''
-    def setUp(self):
-        '''
-        Setup method to run before each test case
-        '''
-        self.new_Credentials = Credentials("fb","ace","1234")
-
-    
 
     
 
