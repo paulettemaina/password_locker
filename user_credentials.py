@@ -57,8 +57,8 @@ class Credentials:
     '''
     Credentials_list = []
 
-    def __init__(self,website_name,user_name,pass_key):
-        self.website_name = website_name
-        self.user_name = user_name
+    def __init__(self,site,user_id,pass_key):
+        self.site = site
+        self.user_id = user_id
         self.pass_key = pass_key
     
