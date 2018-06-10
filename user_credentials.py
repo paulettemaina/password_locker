@@ -112,4 +112,11 @@ class Credentials:
         method that returns the credentials list
         '''
         return cls.credentials_list
+
+    @classmethod
+    def copy_pass_key(cls,user_id):
+        credentials_found = Credentials.find_by_user_id(user_id)
+        pyperclip.copy(credentials_found.pass_key)
+
+    
     
