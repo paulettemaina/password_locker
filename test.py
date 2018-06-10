@@ -74,6 +74,39 @@ class TestUser(unittest.TestCase):
         self.assertTrue(user_exists)
 
 
+class TestCredentials(unittest.TestCase):
+    '''
+    Test class that defines test cases for the credentials class.
+    Args:
+        unittest.TestCase: TestCase class that helps in creating test cases
+    '''
+    def setUp(self):
+        '''
+        Setup method to run before each test case
+        '''
+        self.new_credentials = Credentials("fb","Ventura","0000")
+
+    def tearDown(self):
+        '''
+        tearDown method that does clean up after each test case has run.
+        '''
+        Credentials.credentials_list = []
+
+    def test_init(self):
+        '''
+        test_init test case to test if the object is initialized properly
+        '''
+
+        self.assertEqual(self.new_credentials.site,"fb")
+        self.assertEqual(self.new_credentials.user_id,"Ventura")
+        self.assertEqual(self.new_credentials.pass_key,"0000")
+        
+
+
+
+
+
+
 
 
 if __name__ == '__main__':
