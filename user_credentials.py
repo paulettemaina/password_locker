@@ -36,7 +36,7 @@ class User:
         '''
         Method that checks if a credentials exists from the credentials list.
         Args:
-            number: Phone number to search if it exists
+            login_name: Phone login_name to search if it exists
         Returns :
             Boolean: True or false depending if the credentials exists
         '''
@@ -75,4 +75,19 @@ class Credentials:
         '''
 
         Credentials.credentials_list.remove(self)
+
+    @classmethod
+    def find_by_user_id(cls,user_id):
+        '''
+        Method that takes in a login_name and returns a credentials that matched that login_name.
+
+        Args:
+            login_name: login_name to search for credentials
+        Returns:
+             Credentials of person that matched the login_name.
+        '''
+
+        for credentials in cls.credentials_list:
+            if credentials.user_id == user_id:
+                return credentials
     
