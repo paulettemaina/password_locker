@@ -163,6 +163,16 @@ class TestCredentials(unittest.TestCase):
 
         self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
 
+    def test_copy_pass_key(self):
+        '''
+        Test to confirm that we are copying the pass_key address from a found credentials
+        '''
+
+        self.new_credentials.save_credentials()
+        Credentials.copy_pass_key("Ventura")
+
+        self.assertEqual(self.new_credentials.pass_key,pyperclip.paste())
+
 
     
 
