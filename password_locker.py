@@ -1,4 +1,5 @@
 #!/usr/bin/env python3.6
+import pyperclip
 from user_credentials import User, Credentials
 
 def create_user(login, pword):
@@ -152,8 +153,8 @@ def main():
                 del_username = input()
                 if check_existing_credential(del_username):
                     search_del_credentials = find_credentials(del_username)
-                    delete_credential = del_username(search_del_credentials)
-                    print("Deleted {search_del_contracts} ")
+                    del_credential = del_credentials(search_del_credentials)
+                    print(f"Deleted credentials of {website} with the {del_username} username ")
                 else:
                     print("That credential does not exist")
 
@@ -162,8 +163,11 @@ def main():
                 copy_user = input()
                 if check_existing_credential(copy_user):
                     search_copy_user = find_credentials(copy_user)
-                    copy_search_pass_key = copy_credentials_pass_key(search_copy_user)
-                    print("Copy: {copy_search_pass_key}")
+                    pyperclip.copy(search_copy_user.pass_key)
+                    #copy_search_pass_key = copy_credentials_pass_key(search_copy_user)
+                   # print("Copy: {copy_search_pass_key}")
+
+                    print(f"Password has been copied {search_copy_user.pass_key} ")
                 else:
                     print("Those credentials don't exist.")
     
