@@ -7,8 +7,8 @@
 
 ##Open your terminal and run the following command:
 
-    'git clone https://github.com/paulettemaina/password_locker.git && cd pass-safe
-    'on terminal run the command ./run.py
+     `git clone https://github.com/paulettemaina/password_locker.git && cd password_locker`
+     'on terminal run the command ./run.py
 
 ###REQUIREMENTS TO RUN THE PROGRAM
 
