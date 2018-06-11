@@ -50,7 +50,7 @@ class TestUser(unittest.TestCase):
 
     def test_find_user_by_login_name(self):
         '''
-        test to check if we can find a credentials by phone number and display information
+        test to check if we can find a credentials by login_name and display information
         '''
 
         self.new_user.save_user()
@@ -172,15 +172,6 @@ class TestCredentials(unittest.TestCase):
         Credentials.copy_pass_key("Ventura")
 
         self.assertEqual(self.new_credentials.pass_key,pyperclip.paste())
-
-
-    
-
-    
-        
-
-
-
 
 
 
