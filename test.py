@@ -1,5 +1,6 @@
 import unittest
 import pyperclip
+from random import randint
 from user_credentials import User, Credentials
 
 class TestUser(unittest.TestCase):
@@ -101,6 +102,12 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(self.new_credentials.user_id,"Ventura")
         self.assertEqual(self.new_credentials.pass_key,"0000")
 
+
+
+
+    
+    
+    
     def test_save_credentials(self):
         '''
         test_save_credentials test case to test if the credentials 

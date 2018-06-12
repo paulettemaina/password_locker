@@ -1,4 +1,8 @@
 import pyperclip
+import string
+import random
+import secrets
+
 class User:
     '''
     Class that generates new instances of users
@@ -75,6 +79,13 @@ class Credentials:
         '''
 
         Credentials.credentials_list.remove(self)
+
+    def generate_passwords(self):
+ 
+        alphabet = string.ascii_letters + string.digits
+        generated_password = ''.join(secrets.choice(alphabet) for i in range(20)) # for a 20-character password
+        return generated_password
+
 
     @classmethod
     def find_by_user_id(cls,user_id):

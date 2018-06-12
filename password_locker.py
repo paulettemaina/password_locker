@@ -1,5 +1,7 @@
 #!/usr/bin/env python3.6
 import pyperclip
+import string
+import random
 from user_credentials import User, Credentials
 
 def create_user(login, pword):
@@ -33,6 +35,9 @@ def create_credentials(website,username,p_key):
     '''
     new_credentials = Credentials(website,username,p_key)
     return new_credentials
+
+def generate_password(self):
+    return generated_passwords
 
 def save_credential(credentials):
     '''
@@ -71,22 +76,27 @@ def copy_credentials_pass_key(user_id):
     return Credentials.copy_pass_key(user_id)
 
 def main():
-    print("Welcome to password_locker. ")
+    print("WELCOME TO PASSWORD LOCKER. ")
+    print('\n')
 
     while True:
-        print("Use these short codes :  \n log - To login into your password_locker account, \n cu - To create a new password_locker account,fu - To find user account, \n ex -exit account ")
+        print("Use these short codes :")
+        print("\n log - To login into your password_locker account, \n cu - To create a new password_locker account, \n fu - To find user account, \n ex -exit account ")
         short_code = input().lower()
 
 
         if short_code == 'cu':
-            print("To create a password_locker user account kindly fill in the information below")
+            print('\n')
+            print("To create a password_locker account kindly fill in the information below")
             print("Enter your desired password_locker  login name")
             login = input()
             print("Enter your desired password_locker password")
             pword = input()
 
             save_users(create_user(login,pword))
-            print(f"Welcome {login}. You have succesfully created a password locker account. You can now log in and save, display, delete or copy youe credentials.")
+            print('\n')
+            print(f"Welcome {login}. \n")
+            print("You have succesfully created a password locker account. You can now log in and save, display, delete or copy youe credentials.")
        
 
         elif short_code == 'fu':
@@ -111,13 +121,15 @@ def main():
 
         while True:
             print('\n')
-            print("Please use the following short codes cc-To create a new credential,fc - To find a credential, dc- To display credentials, del- to delete a credential, cp- To copy a credential's password and ex- to exit")
+            print("Please use the following short codes \n    cc-To create a new credential, \n    cpass- To generate a new password, \n    fc - To find a credential, \n    dc- To display credentials, \n    del- to delete a credential, \n    cp- To copy a credential's password \n    ex- to exit")
             log_shortcode=input()
 
          #   credential_user =logged_user
 
             if log_shortcode == 'cc':
-                print('n'"Fill in the information below to create a new credential")
+                print('\n')
+                print("Fill in the information below to create a new credential")
+                print('\n')
                 print("Enter the website")
                 website=input()
                 print("Enter your username for the website")
@@ -130,15 +142,22 @@ def main():
                 print(f"You have created a new credential for {website}.")
                 print('\n')
 
+            elif log_shortcode == 'cpass':
+                print('\n')
+                print("Generate a new random password \n")
+                print(generate_password)
+
             elif log_shortcode == 'dc':
+                print('/n')
                 if display_credentials():
                     for credentials in display_credentials():
                         print(f"{credentials.site}, {credentials.user_id}, {credentials.pass_key}")
                         print('\n')
                 else:
-                    print("Nothing to display")
+                    print("\n Nothing to display")
                     
             elif log_shortcode == 'fc':
+                print('/n')
                 print("Enter your username for the website you want to find your stored credentials")
                 search_username = input()
                 if check_existing_credential(search_username):
@@ -146,9 +165,10 @@ def main():
                     print(f"{search_username.username} ,  {search_contact.website}")
                     print('-' *20)
                 else:
-                    print("That credential does not exist")
+                    print(" \n That credential does not exist")
 
             elif log_shortcode == 'del':
+                print('/n')
                 print("Enter the username of the credentials you want to delete")
                 del_username = input()
                 if check_existing_credential(del_username):
@@ -156,9 +176,10 @@ def main():
                     del_credential = del_credentials(search_del_credentials)
                     print(f"Deleted credentials of {website} with the {del_username} username ")
                 else:
-                    print("That credential does not exist")
+                    print(" \n That credential does not exist")
 
             elif log_shortcode == 'cp':
+                print('/n')
                 print("Enter the username of the credential you want to copy")
                 copy_user = input()
                 if check_existing_credential(copy_user):
@@ -169,25 +190,14 @@ def main():
 
                     print(f"Password has been copied {search_copy_user.pass_key} ")
                 else:
-                    print("Those credentials don't exist.")
+                    print(" \n Those credentials don't exist.")
     
             elif log_shortcode =='ex' :
                 print("Bye...")
                 break
-                
-
-
-
-
-
 
             else:
-                print("I really didn't get that. Please use shortcode, Thank you.")
-                
-
-
-        
-                        
+                print("I really didn't get that. Please use shortcode, Thank you.")                    
 
 if __name__ == '__main__':
     main()
